@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/09/2015, 06:12:26 PM
+    Author     : Nazart
+*/
+
+table{
+    float:left; border:1px solid; padding:10px;margin:5px;
+}
+
+.verde{
+    color: chartreuse;
+}
+.rojo{
+    color: red;
+}
+
+.color1{
+    background-color: activeborder;
+}
+.color2{
+    background-color: aliceblue;
+}
+.color3{
+    background-color: bisque;
+}
+.color4{
+    background-color: yellowgreen;
+}
+.color5{
+    background-color: violet;
+}
+.color6{
+    background-color: violet;
+}
+.color7{
+    background-color: tomato;
+}
+.color8{
+    background-color: coral;
+}
+.color9{
+    background-color: silver;
+}
+.color10{
+    background-color: rgb(10,120,34);
+}
+.color12{
+    background-color: rgb(100,120,34);
+}
+.color11{
+    background-color: rgb(100,120,134);
+}
