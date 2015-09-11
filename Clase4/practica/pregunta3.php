@@ -23,8 +23,8 @@
         <h2>Solucion</h2>
         <p>
             <?php
-            $numeroPies =  100;//rand(1, 100);
-            $numeroMetros = 50;//rand(1, 100);
+            $numeroPies =  51;//rand(1, 100);
+            $numeroMetros = 88;//rand(1, 100);
             ?>
             <br>El Numero en pies es : <?php echo $numeroPies; ?>
             <br>El Numero en Metros es : <?php echo $numeroMetros; ?>
