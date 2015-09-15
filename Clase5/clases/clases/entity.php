@@ -23,7 +23,27 @@ abstract class entity {
     protected function getId() {
         return $this->id;
     }
-    /*me permite accedder a las atributos de la clase*/
+
+    function save($object, $nombreEntity) {
+        if (isset($_SESSION[$nombreEntity])){
+            $count = count($_SESSION[$nombreEntity]);
+        }else{
+            $count=0;
+        }
+        $object['id']=$count;
+        $_SESSION[$nombreEntity][] = $object;
+        
+    }
+
+    static function getEntity($nombreEntity) {
+        if (isset($_SESSION[$nombreEntity]))
+            return $_SESSION[$nombreEntity];
+        else
+            return array();
+    }
+
+    /* me permite accedder a las atributos de la clase */
+
     function setPropertie($properti, $value) {
         $propsFormat = $this->setFormatProperti();
         if (in_array($properti, $propsFormat)) {
@@ -33,7 +53,7 @@ abstract class entity {
             exit;
         }
     }
-    
+
     function setFormatProperti() {
         $cl = new ReflectionClass($this);
         $props = $cl->getProperties(ReflectionProperty::IS_PROTECTED);
@@ -62,6 +82,10 @@ abstract class entity {
         } else {
             return false;
         }
+    }
+
+    function destriurEntity($nombreEntity) {
+        unset($_SESSION[$nombreEntity]);
     }
 
 }

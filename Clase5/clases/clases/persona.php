@@ -25,7 +25,7 @@ class Persona extends entity {
     const SEXO_MASCULINO = 'm';
     const SEXO_FEMENINO = 'f';
     
-    const ESTADO_REGISTRADO = 3;
+    const NOMBRE_ENTITY = 'persona';
 
     public function __construct($datos = array()) {
         $this->setValues($datos);
@@ -43,73 +43,12 @@ class Persona extends entity {
     }
     
     public function nuevoUsuario(){
-        
+        $this->save($this->getProperties(),self::NOMBRE_ENTITY);
     }
     
-    public function actualizarUsuario($id,$datos){
-        $this->setValues($datos);
+    static function listPersona(){
+       return entity::getEntity(self::NOMBRE_ENTITY);
     }
     
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    public function getNombre() {
-        return $this->nombre;
-    }
-
-    public function setApellido($apellido) {
-        $this->apellido = $apellido;
-    }
-
-    public function getApellido() {
-        return $this->apellido;
-    }
-
-    public function setEdad($edad) {
-        $this->edad = $edad;
-    }
-
-    public function getEdad() {
-        return $this->edad;
-    }
-
-    public function setDireccion($direccion) {
-        $this->direccion = $direccion;
-    }
-
-    public function getDireccion() {
-        return $this->direccion;
-    }
-
-    public function setDNI($dni) {
-        $this->dni = $dni;
-    }
-
-    public function getDNI() {
-        return $this->dni;
-    }
-
-    public function setSexo($sexo) {
-        $valorSexoMasculino = self::SEXO_MASCULINO;
-        $valorSexoFemenino = self::SEXO_FEMENINO;
-        $valoresSexo = array($valorSexoFemenino, $valorSexoMasculino);
-        if (in_array($sexo, $valoresSexo)) {
-            $this->sexo = $sexo;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function getSexo() {
-        return $this->sexo;
-    }
-    public function setAuto(auto $auto){
-        
-        $this->auto = $auto;
-        
-    }
-
     //public function 
 }
