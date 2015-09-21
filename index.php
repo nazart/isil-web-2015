@@ -7,7 +7,7 @@
         <ul>
             <li><a href="Clase4">Clase4</a></li>
             <li><a href="Clase5">Clase5</a></li>
-            <li><a href="">Clase6</a></li>
+            <li><a href="Clase6">Clase6</a></li>
         </ul>
     </body>
 </html>
