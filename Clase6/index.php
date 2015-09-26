@@ -12,14 +12,5 @@
             <li><a href="procedimientoalmacenado.php">Procedimientos Almacenado</a></li>
             <li><a href="transacciones.php">Transacciones</a></li>
         </ul>
-        <?php include_once './coneccion.php'; ?>
-        <?php // include_once './sentencias.php'; ?>
-        <?php //include_once './resultados.php'; ?>
-        
-        <?php // include_once './sentenciasPreparadas.php'; ?>
-        <?php // include_once './sentenciasMultiples.php'; ?>
-        <?php // include_once './precedimientoalmacenado.php'; ?>
-        <?php // include_once './Transacciones.php'; ?>
-
     </body>
 </html>

@@ -12,12 +12,18 @@
                 echo "\nFallo al conectar a MySQL: " . $mysqli->connect_errno; /* numero de error del mysql */
                 echo "\nFallo al conectar a MySQL: " . $mysqli->connect_error; /* descripcion del error PHP */
             } else {
-                if ($mysqli->query("DROP TABLE IF EXISTS test")) {
-                    echo 'si la tabla test existe se ha sido eliminada' . PHP_EOL;
+                if ($mysqli->query("DROP TABLE IF, EXISTS test")) {
+                    echo 'si la tabla test existe se ha sido eliminada' .PHP_EOL;
+                }else{
+                    echo 'Hubo un error al registrar' .PHP_EOL;
                 }
                 if ($mysqli->query("CREATE TABLE test(id INT)")) {
                     echo 'se ha creado la tabla test' . PHP_EOL;
+                }else{
+                        echo $mysqli->error.PHP_EOL;
+                        echo $mysqli->errno.PHP_EOL;
                 }
+                
                 if ($mysqli->query("INSERT INTO test(id) VALUES (1)")) {
                     echo 'se ha insertado una fila en test' . PHP_EOL;
                 }
