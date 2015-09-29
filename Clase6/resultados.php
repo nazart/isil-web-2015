@@ -55,10 +55,10 @@
             ?>
     mejor lo hago con un while
             <?php
+            $data = array();
             $resultado = $mysqli->query("select * from marca");
             while ($row = $resultado->fetch_assoc()) {
-                //print_r($datos);
-                $data[$row['marca_id']] = $row;
+                $data[] = $row;
             }
             print_r($data);
             ?>
