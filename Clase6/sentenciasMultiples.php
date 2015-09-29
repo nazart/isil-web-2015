@@ -29,7 +29,7 @@
 
             do {
                 if ($resultado = $mysqli->store_result()) {
-                    print_r($resultado->fetch_all(MYSQLI_ASSOC));
+                    print_r($resultado->fetch_assoc());
                     $resultado->free();
                 }
             } while ($mysqli->more_results() && $mysqli->next_result());

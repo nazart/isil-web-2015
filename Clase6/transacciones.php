@@ -34,9 +34,9 @@
             <?php
             $mysqli = new mysqli("127.0.0.1", "root", "", "jcugarte");
             $mysqli->autocommit(false);
-            if (!$mysqli->query('SET AUTOCOMMIT = 0')) {
+           /* if (!$mysqli->query('SET AUTOCOMMIT = 0')) {
                 echo "Falló la consulta: (" . $mysqli->errno . ") " . $mysqli->error;
-            }
+            }*/
             $mysqli->query("INSERT INTO test(id) VALUES (1)");
             $mysqli->query("INSERT INTO test(id) VALUES (2)");
             $mysqli->query("INSERT INTO test(id) VALUES (3)");
@@ -52,11 +52,9 @@
         </pre>
         <?php
         $mysqli = new mysqli("127.0.0.1", "root", "", "jcugarte");
-        $mysqli->autocommit(false);
-        if (!$mysqli->query('SET AUTOCOMMIT = 0')) {
-            echo "Falló la consulta: (" . $mysqli->errno . ") " . $mysqli->error;
-        }
-        $arrayAccesorios = array(1, 2, 3, 4, 5);
+        //$mysqli->autocommit(false);
+        
+        $arrayAccesorios = array(1, 2, 3, 4, 5,array('asdsad'));
         try {
             $sentencia = $mysqli->prepare("INSERT INTO vehiculo(marca_id,modelo_id,vehiculo_precio) VALUES (?,?,?)");
             $marca_id = 2;

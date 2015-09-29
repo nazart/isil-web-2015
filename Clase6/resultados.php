@@ -38,7 +38,7 @@
             <?php
             $resultado = $mysqli->query("select * from marca");
             $datos = $resultado->fetch_array(MYSQLI_NUM);
-            //$datos = $resultado->fetch_row();
+            $datos = $resultado->fetch_row();
             print_r($datos);
             ?>
         </pre>
@@ -58,7 +58,7 @@
             $resultado = $mysqli->query("select * from marca");
             while ($row = $resultado->fetch_assoc()) {
                 //print_r($datos);
-                $data[] = $datos;
+                $data[$row['marca_id']] = $row;
             }
             print_r($data);
             ?>
@@ -110,6 +110,7 @@
             echo 'Id Marca: ' . $datos->getId() . PHP_EOL;
             echo 'Nombre Marca: ' . $datos->getNombre() . PHP_EOL;
             echo 'Id Marca Autocompletado: ' . $datos->autocompletaConCeros() . PHP_EOL;
+            
             while ($datos = $resultado->fetch_object('Marca')) {
                 echo '<br>';
                 echo 'Id Marca: ' . $datos->getId() . PHP_EOL;

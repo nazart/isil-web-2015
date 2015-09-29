@@ -10,7 +10,7 @@
             <?php
             /* Insertas el host, el usuaruo */
             $mysqli = mysqli_connect("127.0.0.1", "root", "", "jcugarte");
-           // print_r($mysqli);
+            print_r($mysqli);
             echo "\n" . (mysqli_connect_errno());
             echo "\n" . (mysqli_connect_error());
             ?>

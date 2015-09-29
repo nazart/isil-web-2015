@@ -48,6 +48,12 @@
                     echo 'se ha insertado una fila en test' . PHP_EOL;
                 }
                 $resultado = $mysqli->query("SELECT id FROM test ORDER BY id ASC");
+                /*print_r($resultado);
+                $class = new ReflectionClass($resultado);
+                print_r($class->getMethods());
+                print_r($class->getProperties());
+                exit;*/
+                
                 echo "Orden inverso...\n";
                 for ($num_fila = $resultado->num_rows - 1; $num_fila >= 0; $num_fila--) {
                     $resultado->data_seek($num_fila); /* Salta el puntero a un numero determinado de fila */
@@ -88,12 +94,11 @@ las columnas INT de SQL son devueltas como enteros.
 
             $resultado = $mysqli->query("SELECT id, etiqueta FROM test WHERE id = 1");
             $fila = $resultado->fetch_assoc();
-            //echo json_encode($fila);
+            echo json_encode($fila);
 
             printf("id = %s (%s)\n", $fila['id'], gettype($fila['id']));
             printf("etiqueta = %s (%s)\n", $fila['etiqueta'], gettype($fila['etiqueta']));
             ?>
         </pre>
-
     </body>
 </html>

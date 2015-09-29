@@ -13,7 +13,7 @@ Me permite ejecutar la sentencia varias veces
             if ($mysqli->connect_errno) {
                 echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
             }
-            if (!($sentencia = $mysqli->prepare("INSERT INTO marca(marca_id,marca_nombre,marca_imagen,marca_flag_activo) VALUES (?,?,?,?)"))) {
+            if (!($sentencia = $mysqli->prepare("INSERT INTO marca(marca_id,marca_nombre,marca_imagen,marca_flag_activo) VALUES (?,?,?,?);"))) {
                 echo "Falló la preparación: (" . $mysqli->errno . ") " . $mysqli->error;
             }
 
