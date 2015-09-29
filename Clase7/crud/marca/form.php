@@ -1,8 +1,3 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<form>
+    <input type="text" name="nombre" value="<?php echo isset($nombre)?$nombre:''; ?>">
+</form>

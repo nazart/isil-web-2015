@@ -12,12 +12,15 @@ class conection_db {
         return $this;
     }
     
-    function fetch(){
+    function fetchAll(){
         $data = array();
         while ($row = $this->_sql->fetch_assoc()){
             $data[] = $row;
         }
         return $data;
+    }
+    function fetch(){
+        return $this->_sql->fetch_assoc(); 
     }
 }
 
