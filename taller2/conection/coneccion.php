@@ -22,5 +22,6 @@ class conection {
     function fetch(){
         return $this->_query->fetch_assoc(); 
     }
+    
 
 }
