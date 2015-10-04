@@ -1,5 +1,5 @@
 <?php
-
+require_once realpath(__DIR__.'/conf.php');
 class conection {
     protected $_query;
     protected $_conection;
