@@ -1,9 +1,11 @@
 <?php
 require_once realpath(__DIR__.'/Model.php');
 class ModelAccesorios extends Model {
+        
     
     public function __construct() {
         parent::__construct();
+        $this->_table = 'accesorio';
     }
     
     public function getAllAccesorios(){
