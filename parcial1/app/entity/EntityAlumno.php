@@ -1,5 +1,4 @@
 <?php
-
 require_once realpath(__DIR__ . '/../model/ModelAlumno.php');
 require_once realpath(__DIR__ . '/../model/ModelNota.php');
 
@@ -10,6 +9,7 @@ class EntityAlumno {
     protected $_apellidos;
     protected $_fechaNacimiento;
     protected $_correo;
+    protected $_notas;
 
     function indentify($id) {
         $modelAlumno = new ModelAlumno();
