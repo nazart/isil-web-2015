@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v10.00 Beta1
+SQLyog Community v12.04 (64 bit)
 MySQL - 5.6.21 : Database - parcial1
 *********************************************************************
 */
@@ -27,9 +27,42 @@ CREATE TABLE `alumno` (
   `alumno_fecha` date DEFAULT NULL,
   `alumno_correo` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`alumno_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 /*Data for the table `alumno` */
+
+/*Table structure for table `alumno_asistencia` */
+
+DROP TABLE IF EXISTS `alumno_asistencia`;
+
+CREATE TABLE `alumno_asistencia` (
+  `alumno_asistencia_id` int(11) NOT NULL AUTO_INCREMENT,
+  `alumno_id` int(11) DEFAULT NULL,
+  `asistenacia_id` int(11) DEFAULT NULL,
+  `alumno_asistencia_estado` tinyint(4) DEFAULT NULL,
+  `alumno_asistencia_fecha_hora_registro` datetime DEFAULT NULL,
+  `alumno_asistencia_flagofline` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`alumno_asistencia_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `alumno_asistencia` */
+
+/*Table structure for table `asistencia` */
+
+DROP TABLE IF EXISTS `asistencia`;
+
+CREATE TABLE `asistencia` (
+  `asistencia_id` int(11) NOT NULL AUTO_INCREMENT,
+  `asistencia_fecha` date DEFAULT NULL,
+  `asistencia_nombre` varchar(20) DEFAULT NULL,
+  `asistencia_hora_inicio` time DEFAULT NULL,
+  `asistencia_hora_final` time DEFAULT NULL,
+  PRIMARY KEY (`asistencia_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `asistencia` */
+
+insert  into `asistencia`(`asistencia_id`,`asistencia_fecha`,`asistencia_nombre`,`asistencia_hora_inicio`,`asistencia_hora_final`) values (1,'2015-10-12','Clase7','19:00:00','22:00:00'),(2,'2015-10-13','CLase8','19:00:00','22:00:00');
 
 /*Table structure for table `nota` */
 
@@ -46,7 +79,7 @@ CREATE TABLE `nota` (
   `nota_examen_final` float DEFAULT NULL,
   `nota_trabajo_final` float DEFAULT NULL,
   PRIMARY KEY (`nota_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `nota` */
 
