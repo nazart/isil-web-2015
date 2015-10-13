@@ -18,8 +18,8 @@ class ModelAsistenciaAlumno extends Model {
         return $this->_conection->ejecuteSql($this->prepareInsertSql($data));
     }
     
-    public function updateAsistenciaAlumno($data,$id){
-        return $this->_conection->ejecuteSql($this->prepareUpdateSql($data,$id));
+    public function updateAsistenciaAlumno($data,$where){
+        return $this->_conection->ejecuteSql($this->prepareUpdateSqlWhere($data,$where));
     }
 }
 

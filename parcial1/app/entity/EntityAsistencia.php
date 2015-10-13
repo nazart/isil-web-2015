@@ -78,6 +78,7 @@ class EntityAsistencia {
     function registrarAsistencia($alumnoRegistrados) {
         $alumnos = EntityAlumno::getAllAlumno();
         $modelAsistenciaAlumno = new ModelAsistenciaAlumno();
+        $flagUpdate = !empty($this->_alumnos);
         foreach($alumnos as $index){
             if(in_array($index['alumno_id'], $alumnoRegistrados)){
                 $estado = 1;
@@ -88,9 +89,15 @@ class EntityAsistencia {
             $data['asistencia_id'] = $this->_id;
             $data['alumno_asistencia_estado'] = $estado;
             $data['alumno_asistencia_fecha_hora_registro'] = date('Y-m-d H:i:s');
-            /*Queda pendiente definir si es dentro o fuera de la hora de la asistencia*/
+            /* Queda pendiente definir si es dentro o fuera de la hora de la asistencia */
             $data['alumno_asistencia_flagofline'] = 1;
-            $modelAsistenciaAlumno->insertAsistenciaAlumno($data);
+            if ($flagUpdate) {
+                $where['asistencia_id'] = $this->_id;
+                $where['alumno_id'] = $index['alumno_id'];
+                $modelAsistenciaAlumno->updateAsistenciaAlumno($data, $where);
+            } else {
+                $modelAsistenciaAlumno->insertAsistenciaAlumno($data);
+            }
             unset($data);
         }
         return true;

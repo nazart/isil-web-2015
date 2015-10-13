@@ -25,6 +25,18 @@ abstract class  Model {
         $sql .= ' where '.$this->_primaryKey.' = \''.$id.'\'';
         return $sql;
     }
+    public function prepareUpdateSqlWhere($parametros,$arrayWhere){
+        foreach($parametros as $index=>$value){
+            $sqlArray[] = $index." = '".$value."'";
+        }
+        foreach($arrayWhere as $index=>$value){
+            $sqlArrayWhere[] = $index." = '".$value."'";
+        }
+        $sql = 'UPDATE '.$this->_table.' SET ';
+        $sql .= implode(' , ', $sqlArray);
+        $sql .= ' where '.implode(' and ', $sqlArrayWhere);
+        return $sql;
+    }
     
     public function prepareDelete($id){
         $sql = "delete from ".$this->_table .' where '.$this->_primaryKey.'='."'$id'";
