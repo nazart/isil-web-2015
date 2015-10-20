@@ -35,6 +35,11 @@ if (isset($_POST) && !empty($_POST)) {
     <body>
         <h1>Alumno: <?php echo $entityAlumno->getNombre() ?></h1>
         <form method="POST">
+            <select>
+                <option>Seleccione el curso</option> 
+                <option>Curso1</option> 
+                <option>Curso2</option> 
+            </select>
             <input type="hidden" value="<?php echo $idAlumno ?>" name="id" id="id">
             <div>
                 <label>Practica 1</label>
