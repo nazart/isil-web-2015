@@ -19,7 +19,7 @@ if (isset($_POST) && !empty($_POST)) {
         <title>Editar de Alumnos</title>
     </head>
     <body>
-<?php require_once realpath(__DIR__ . '/form/formAlumno.php'); ?>
+<?php require_once realpath(__DIR__ . '/view/formAlumno.php'); ?>
     </body>
 
 

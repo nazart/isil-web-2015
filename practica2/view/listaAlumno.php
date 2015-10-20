@@ -8,7 +8,7 @@
         <th>Accion</th>
     </tr>
 
-    <?php foreach ($allAlumnos as $index) { ?>
+        <?php foreach ($allAlumnos as $index) { ?>
         <tr>
             <td><?php echo $index['alumno_nombre'] ?></td>
             <td><?php echo $index['alumno_apellidos'] ?></td>

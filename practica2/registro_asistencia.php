@@ -28,6 +28,6 @@ if(isset($_POST) && !empty($_POST)){
     <?php 
     $allAlumnos = EntityAlumno::getAllAlumno();
     $asistencias = EntityAsistencia::getAllAsistencias();
-    require_once realpath(__DIR__ . '/form/listaAsistencia.php'); ?>
+    require_once realpath(__DIR__ . '/view/listaAsistencia.php'); ?>
     </body>
 </html>
