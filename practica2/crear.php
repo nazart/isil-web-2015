@@ -1,7 +1,5 @@
 <?php
 require_once realpath(__DIR__ . '/app/entity/EntityAlumno.php');
-
-
 if (isset($_POST) && !empty($_POST)) {
     $entityAlumno = new EntityAlumno();
     $entityAlumno->setNombre($_POST['nombre']);
@@ -12,7 +10,6 @@ if (isset($_POST) && !empty($_POST)) {
     header('Location: index.php');
 }
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,6 +18,4 @@ if (isset($_POST) && !empty($_POST)) {
     <body>
 <?php require_once realpath(__DIR__ . '/view/formAlumno.php'); ?>
     </body>
-
-
 </html>
