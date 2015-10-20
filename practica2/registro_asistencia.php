@@ -1,11 +1,12 @@
 <?php
 require_once realpath(__DIR__ . '/app/entity/EntityAsistencia.php');
 $asistencia = new EntityAsistencia();
+$listaAlumnosAsistencia = array();/*lista de alumnos que asistieron*/
+$idAsistenciaSelected=''; /*asistencia seleccionada*/
 if(isset($_GET['id']) && (int)$_GET['id'] > 0){
     $asistencia->indentify($_GET['id']);
     $idAsistenciaSelected = $asistencia->getId();
     $listaAlumnos = $asistencia->listarAlumnos();
-    $listaAlumnosAsistencia = array();
     foreach ($listaAlumnos as $index){
         if($index['alumno_asistencia_estado']==1)
         $listaAlumnosAsistencia[]=$index['alumno_id'];    
@@ -28,6 +29,7 @@ if(isset($_POST) && !empty($_POST)){
     <?php 
     $allAlumnos = EntityAlumno::getAllAlumno();
     $asistencias = EntityAsistencia::getAllAsistencias();
+    //print_r($asistencias);exit;
     require_once realpath(__DIR__ . '/view/listaAsistencia.php'); ?>
     </body>
 </html>
