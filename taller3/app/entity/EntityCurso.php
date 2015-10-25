@@ -47,7 +47,9 @@ class EntityCurso {
     }
 
     function setActivo($activo) {
-        $this->_activo = $activo;
+        if ($activo == self::CURSO_ACTIVO || $activo == self::CURSO_INACTIVO) {
+            $this->_activo = $activo;
+        }
     }
 
     function save() {
