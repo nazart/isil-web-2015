@@ -1,5 +1,5 @@
 <?php
-require_once realpath(__DIR__ . '/app/entity/EntityAlumno.php');
+require_once realpath(__DIR__ . '/../app/entity/EntityAlumno.php');
 $entityAlumno = new EntityAlumno();
 if (isset($_GET['id']) && $_GET['id'] != '') {
     $entityAlumno->indentify($_GET['id']);

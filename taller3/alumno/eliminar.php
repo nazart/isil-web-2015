@@ -1,4 +1,4 @@
-<?php require_once realpath(__DIR__.'/app/entity/EntityAlumno.php'); ?>
+<?php require_once realpath(__DIR__.'/../app/entity/EntityAlumno.php'); ?>
 <!DOCTYPE html>
 <html>
     <head>

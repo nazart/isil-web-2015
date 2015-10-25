@@ -1,5 +1,5 @@
 <?php
-require_once realpath(__DIR__ . '/app/entity/EntityAlumno.php');
+require_once realpath(__DIR__ . '/../app/entity/EntityAlumno.php');
 if (isset($_POST) && !empty($_POST)) {
     $entityAlumno = new EntityAlumno();
     $entityAlumno->setNombre($_POST['nombre']);

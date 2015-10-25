@@ -18,7 +18,8 @@ class ModelAlumno extends Model {
     }
     
     public function insertAlumno($data){
-        return $this->_conection->ejecuteSql($this->prepareInsertSql($data));
+        $this->_conection->ejecuteSql($this->prepareInsertSql($data));
+        return $this->_conection->getLastInsertId();
     }
     
     public function updateAlumno($data,$id){

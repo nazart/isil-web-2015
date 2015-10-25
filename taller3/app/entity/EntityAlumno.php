@@ -6,6 +6,7 @@ class EntityAlumno {
 
     protected $_id;
     protected $_nombre;
+    protected $_codigo;
     protected $_apellidos;
     protected $_fechaNacimiento;
     protected $_correo;
@@ -16,6 +17,7 @@ class EntityAlumno {
         $data = $modelAlumno->getAlumno($id);
         $this->_id = $data['alumno_id'];
         $this->_nombre = $data['alumno_nombre'];
+        $this->_codigo = $data['alumno_codigo'];
         $this->_apellidos = $data['alumno_apellidos'];
         $this->_fechaNacimiento = $data['alumno_fecha'];
         $this->_correo = $data['alumno_correo'];
@@ -30,6 +32,10 @@ class EntityAlumno {
         $this->_nombre = $nombre;
     }
 
+    function getCodigo() {
+        return $this->_codigo;
+    }
+    
     function getNombre() {
         return $this->_nombre;
     }
@@ -65,12 +71,21 @@ class EntityAlumno {
         $data['alumno_fecha'] = $this->_fechaNacimiento;
         $data['alumno_correo'] = $this->_correo;
         if ($this->_id != '') {
+            $this->_codigo = $this->createCodigo($this->_id);
+            $data['alumno_codigo'] = $this->_codigo;
             $modelAlumno->updateAlumno($data, $this->_id);
         } else {
-            $modelAlumno->insertAlumno($data);
+            $this->_id = $modelAlumno->insertAlumno($data);
+            $this->_codigo = $this->createCodigo($this->_id);
+            unset($data);
+            $data['alumno_codigo'] = $this->_codigo;
+            $modelAlumno->updateAlumno($data, $this->_id);
         }
     }
-
+    
+    private function createCodigo($id){
+        return str_pad($id, 6, "0", STR_PAD_LEFT);
+    }
     function registrarNota($practica1, $practica2, $practica3, $practica4, $parcial, $final, $trabajo) {
         $modelNota = new ModelNota();
         $dataNotas = $modelNota->getNota($this->_id);

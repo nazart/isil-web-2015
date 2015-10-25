@@ -1,5 +1,5 @@
 <?php
-require_once realpath(__DIR__ . '/app/entity/EntityAsistencia.php');
+require_once realpath(__DIR__ . '/../app/entity/EntityAsistencia.php');
 $asistencia = new EntityAsistencia();
 $listaAlumnosAsistencia = array();/*lista de alumnos que asistieron*/
 $idAsistenciaSelected=''; /*asistencia seleccionada*/

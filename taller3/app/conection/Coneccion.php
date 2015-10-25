@@ -22,6 +22,9 @@ class conection {
     function fetch(){
         return $this->_query->fetch_assoc(); 
     }
+    function getLastInsertId(){
+        return $this->_conection->insert_id;
+    }
     
 
 }

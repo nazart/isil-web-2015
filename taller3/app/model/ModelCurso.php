@@ -17,5 +17,17 @@ class ModelCurso extends Model {
         return $this->_conection->ejecuteSql('select * from curso where curso_id = "'.$idCurso.'"')->fetch();
     }
     
+    public function insertCurso($data){
+        return $this->_conection->ejecuteSql($this->prepareInsertSql($data));
+    }
+    
+    public function updateCurso($data,$id){
+        return $this->_conection->ejecuteSql($this->prepareUpdateSql($data,$id));
+    }
+    
+    public function deleteCurso($id){
+        return $this->_conection->ejecuteSql($this->prepareDelete($id));
+    }
+    
 }
 

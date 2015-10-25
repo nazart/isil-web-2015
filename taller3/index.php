@@ -1,15 +1,12 @@
-<?php require_once realpath(__DIR__.'/app/entity/EntityAlumno.php'); ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Administrador de Alumnos</title>
+        <title>Sistema de gestion educativa</title>
     </head>
     <body>
-        
-        <p>
-            <a href="registro_asistencia.php">Registro Asistencia</a>
-        </p>
-        <?php $allAlumnos = EntityAlumno::getAllAlumno(); ?>
-        <?php require_once realpath(__DIR__ . '/view/listaAlumno.php'); ?>
+        <ul>
+            <li><a href="alumno/">Gestion de alumnos</a></li>
+            <li><a href="curso/">Gestion de Cursos</a></li>
+        </ul>
     </body>
 </html>

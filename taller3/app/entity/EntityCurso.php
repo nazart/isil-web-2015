@@ -10,7 +10,7 @@ class EntityCurso {
     protected $_activo; /* o es 1 o 0 */
 
     const CURSO_ACTIVO = 1;
-    const CURSO_INACTIVO = 0;
+    const CURSO_INACTIVO = 2;
 
     function indentify($id) {
         $modelCurso = new ModelCurso();
@@ -18,7 +18,7 @@ class EntityCurso {
         $this->_id = $data['curso_id'];
         $this->_nombre = $data['curso_nombre'];
         $this->_credito = $data['curso_credito'];
-        $this->_activo = $data['curso_fecha'];
+        $this->_activo = $data['curso_flag_activo'];
         return $data;
     }
 
@@ -49,6 +49,8 @@ class EntityCurso {
     function setActivo($activo) {
         if ($activo == self::CURSO_ACTIVO || $activo == self::CURSO_INACTIVO) {
             $this->_activo = $activo;
+        }else{
+            $this->_activo = self::CURSO_INACTIVO;
         }
     }
 
@@ -57,7 +59,6 @@ class EntityCurso {
         $data['curso_nombre'] = $this->_nombre;
         $data['curso_credito'] = $this->_credito;
         $data['curso_flag_activo'] = $this->_activo;
-        $data['curso_correo'] = $this->_correo;
         if ($this->_id != '') {
             $modelCurso->updateCurso($data, $this->_id);
         } else {
