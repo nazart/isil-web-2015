@@ -26,12 +26,13 @@ CREATE TABLE `alumno` (
   `alumno_apellidos` varchar(30) DEFAULT NULL,
   `alumno_fecha` date DEFAULT NULL,
   `alumno_correo` varchar(30) DEFAULT NULL,
+  `alumno_codigo` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`alumno_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 /*Data for the table `alumno` */
 
-insert  into `alumno`(`alumno_id`,`alumno_nombre`,`alumno_apellidos`,`alumno_fecha`,`alumno_correo`) values (47,'nazart','jara','0000-00-00','asdasdad'),(48,'julio','leon','0000-00-00','asda'),(49,'carlos','rafo','0000-00-00','asda');
+insert  into `alumno`(`alumno_id`,`alumno_nombre`,`alumno_apellidos`,`alumno_fecha`,`alumno_correo`,`alumno_codigo`) values (47,'nazart','jara','0000-00-00','asdasdad','000047'),(48,'julio','leon','0000-00-00','asda','000048'),(49,'carlos','rafo','0000-00-00','asda','000049'),(50,'carlos','Quispe','0000-00-00','carlosquispe@gmail.com','000050');
 
 /*Table structure for table `alumno_asistencia` */
 
@@ -79,9 +80,25 @@ CREATE TABLE `curso` (
   `curso_flag_activo` tinyint(1) DEFAULT NULL,
   `curso_credito` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`curso_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `curso` */
+
+insert  into `curso`(`curso_id`,`curso_nombre`,`curso_flag_activo`,`curso_credito`) values (1,'desarrollo web',2,1),(2,'Javascript',1,2);
+
+/*Table structure for table `curso_alumno` */
+
+DROP TABLE IF EXISTS `curso_alumno`;
+
+CREATE TABLE `curso_alumno` (
+  `curso_alumno_id` int(11) NOT NULL AUTO_INCREMENT,
+  `curso_id` int(11) DEFAULT NULL,
+  `alumno_id` int(11) DEFAULT NULL,
+  `curso_alumno_fecha_registro` datetime DEFAULT NULL,
+  PRIMARY KEY (`curso_alumno_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `curso_alumno` */
 
 /*Table structure for table `nota` */
 
