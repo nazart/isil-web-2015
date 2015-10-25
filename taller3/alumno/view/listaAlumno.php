@@ -1,6 +1,7 @@
 <a href="crear.php">Nuevo Alumno</a>
 <table>
     <tr>
+        <th>Codigo</th>
         <th>Nombre</th>
         <th>Apellidos</th>
         <th>Fecha Nacimiento</th>
@@ -10,6 +11,7 @@
 
         <?php foreach ($allAlumnos as $index) { ?>
         <tr>
+            <td><?php echo $index['alumno_codigo'] ?></td>
             <td><?php echo $index['alumno_nombre'] ?></td>
             <td><?php echo $index['alumno_apellidos'] ?></td>
             <td><?php echo $index['alumno_fecha'] ?></td>
