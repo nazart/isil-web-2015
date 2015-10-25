@@ -8,7 +8,6 @@
         <th>Correo</th>
         <th>Accion</th>
     </tr>
-
         <?php foreach ($allAlumnos as $index) { ?>
         <tr>
             <td><?php echo $index['alumno_codigo'] ?></td>

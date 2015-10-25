@@ -1,28 +1,37 @@
 <?php
-
-require_once realpath(__DIR__ . '/../model/ModelCuroAlumno.php');
+require_once realpath(__DIR__ . '/../model/ModelCursoAlumno.php');
+require_once realpath(__DIR__ . '/../model/ModelAlumno.php');
 
 class EntityMatricula {
 
-    protected $_id;
-    protected $_nombre;
-    protected $_credito;
-    protected $_activo; /* o es 1 o 0 */
+    protected $_alumno;
+    protected $_cursos;
 
-    function indentify($id) {
-        
+    function setAlumno($alumno) {
+        $this->_alumno = $alumno;
+    }
+
+    function setCursos($cusos) {
+        $this->_cursos = $cusos;
     }
 
     function save() {
-        $modelMatricula = new ModelMatricula();
-        $data['curso_nombre'] = $this->_nombre;
-        $data['curso_credito'] = $this->_credito;
-        $data['curso_flag_activo'] = $this->_activo;
-        if ($this->_id != '') {
-            $modelMatricula->updateMatricula($data, $this->_id);
-        } else {
-            $modelMatricula->insertMatricula($data);
+        foreach ($this->_cursos as $index) {
+            $modelCursoAlumno = new ModelCursoAlumno();
+            $data['curso_id'] = $index;
+            $data['alumno_id'] = $this->_alumno;
+            $data['curso_alumno_fecha_registro'] = date('Y-m-d H:i:s');
+            $modelCursoAlumno->insertCursoAlumno($data);
         }
     }
+
+    function buscarAlumno($codigo) {
+        $modelAlumno = new ModelAlumno();
+        $data = $modelAlumno->getAlumnoForCodigo($codigo);
+        $this->_alumno = $data['alumno_id'];
+        return $data;
+    }
+
+
 
 }

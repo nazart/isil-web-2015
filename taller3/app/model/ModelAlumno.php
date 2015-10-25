@@ -13,10 +13,15 @@ class ModelAlumno extends Model {
         return $this->_conection->ejecuteSql('select * from alumno')->fetchAll();
     }
     
-    public function getAlumno($idAccesorio){
-        return $this->_conection->ejecuteSql('select * from alumno where alumno_id = "'.$idAccesorio.'"')->fetch();
+    public function getAlumno($idAlumno){
+        return $this->_conection->ejecuteSql('select * from alumno where alumno_id = "'.$idAlumno.'"')->fetch();
     }
     
+    public function getAlumnoForCodigo($codigoAlumno){
+        return $this->_conection->ejecuteSql('select * from alumno where alumno_codigo = "'.$codigoAlumno.'"')->fetch();
+    }
+
+
     public function insertAlumno($data){
         $this->_conection->ejecuteSql($this->prepareInsertSql($data));
         return $this->_conection->getLastInsertId();
