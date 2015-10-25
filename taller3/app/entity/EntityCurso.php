@@ -1,4 +1,5 @@
 <?php
+
 require_once realpath(__DIR__ . '/../model/ModelCurso.php');
 
 class EntityCurso {
@@ -6,7 +7,10 @@ class EntityCurso {
     protected $_id;
     protected $_nombre;
     protected $_credito;
-    protected $_activo;
+    protected $_activo; /* o es 1 o 0 */
+
+    const CURSO_ACTIVO = 1;
+    const CURSO_INACTIVO = 0;
 
     function indentify($id) {
         $modelCurso = new ModelCurso();
@@ -46,7 +50,6 @@ class EntityCurso {
         $this->_activo = $activo;
     }
 
-
     function save() {
         $modelCurso = new ModelCurso();
         $data['curso_nombre'] = $this->_nombre;
@@ -59,7 +62,7 @@ class EntityCurso {
             $modelCurso->insertCurso($data);
         }
     }
-    
+
     function delete() {
         $modelCurso = new ModelCurso();
         return $modelCurso->deleteCurso($this->_id);
