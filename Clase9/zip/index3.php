@@ -8,7 +8,6 @@ if ($zip) {
         echo "Nombre:                       " . zip_entry_name($zip_entry) . "\n";
         echo "Tamaño actual del fichero:    " . zip_entry_filesize($zip_entry) . "\n";
         echo "Tamaño comprimido:            " . zip_entry_compressedsize($zip_entry) . "\n";
-        echo "Método de compresión:         " . zip_entry_compressionmethod($zip_entry) . "\n";
 
         if (zip_entry_open($zip, $zip_entry, "r")) {
             echo "Contenido del fichero:\n";
