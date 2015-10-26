@@ -1,7 +1,7 @@
 <?php
 $za = new ZipArchive();
 
-$za->open('test112.zip');
+$za->open('un_solo_archivo.zip');/*Abre el archivo*/
 print_r($za);
 var_dump($za);
 echo "numFicheros: " . $za->numFiles . "\n";

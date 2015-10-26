@@ -2,6 +2,7 @@
 if (!empty($_FILES)) {
     foreach ($_FILES["imagenes"]["error"] as $clave => $error) {
         if ($error == UPLOAD_ERR_OK) {
+            /*si no hubo errores*/
             $nombre_tmp = $_FILES["imagenes"]["tmp_name"][$clave];
             $nombre = $_FILES["imagenes"]["name"][$clave];
             move_uploaded_file($nombre_tmp, "imagenes/$nombre");
