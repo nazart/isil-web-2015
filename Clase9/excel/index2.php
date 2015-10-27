@@ -11,6 +11,7 @@ $sheet->SetCellValue('C' . $row, 'Columna 2');
 $sheet->SetCellValue('D' . $row, 'Columna 3');
 $sheet->SetCellValue('E' . $row, 'Columna 4');
 $sheet->SetCellValue('F' . $row, 'Columna 5');
+
 $sheet->getColumnDimension('A')->setAutoSize(true);
 $sheet->getColumnDimension('B')->setAutoSize(true);
 $sheet->getColumnDimension('C')->setAutoSize(true);

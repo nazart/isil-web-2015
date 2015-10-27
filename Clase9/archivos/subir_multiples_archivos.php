@@ -1,5 +1,6 @@
 <?php
 if (!empty($_FILES)) {
+    print_r($_FILES["imagenes"]);
     foreach ($_FILES["imagenes"]["error"] as $clave => $error) {
         if ($error == UPLOAD_ERR_OK) {
             /*si no hubo errores*/

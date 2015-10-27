@@ -1,6 +1,6 @@
 <?php
 
-function validateMimeFile($mime, $extencion) {
+function validateMimeFile($mimeArchivoActual, $extencionArchivoActual) {
     $mime_types = array(
         'txt' => 'text/plain',
         'htm' => 'text/html',
@@ -49,8 +49,8 @@ function validateMimeFile($mime, $extencion) {
         'odt' => 'application/vnd.oasis.opendocument.text',
         'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
     );
-    $mimeAssoc = $mime_types[$extencion];
-    if ($mime != $mimeAssoc) {
+    $mimeAsociado = $mime_types[$extencionArchivoActual];
+    if ($mimeArchivoActual != $mimeAsociado) {
         return FALSE;
     }
     return TRUE;
@@ -62,7 +62,8 @@ if (!empty($_FILES)) {
         echo "Error: " . $_FILES['archivo']['error'] . "<br>";
     } else {
         $extension = array_pop(explode('.', $_FILES['archivo']['name']));
-        if (validateMimeFile($_FILES['archivo']['type'], $extension)) {
+        $mimeArchivoActual = mime_content_type($_FILES['archivo']['tmp_name']);
+        if (validateMimeFile($mimeArchivoActual, $extension)) {
             echo "Nombre: " . $_FILES['archivo']['name'] . "<br>";
             echo "Tipo: " . $_FILES['archivo']['type'] . "<br>";
             echo "Tamaño: " . ($_FILES["archivo"]["size"] / 1024) . " kB<br>";
