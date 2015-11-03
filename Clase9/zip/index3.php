@@ -1,7 +1,7 @@
 <pre>
 <?php
 
-$zip = zip_open("un_solo_archivo.zip");
+$zip = zip_open("zip_por_archivo.zip");
 
 if ($zip) {
     while ($zip_entry = zip_read($zip)) {

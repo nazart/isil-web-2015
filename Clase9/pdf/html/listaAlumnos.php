@@ -4,12 +4,11 @@
         <title>Listado de Alumnos</title>
     </head>
     <body>
-        
         <h1>Listado de alumnos</h1>
         <hr>
         <table>
             <tr>
-                <td style="padding: 10px; text-align: center">Apellidos</td>
+                <td style="padding: 10px; color: #008200; text-align: center">Apellidos</td>
                 <td style="padding: 10px; text-align: center">Nombres</td>
                 <td style="padding: 10px; text-align: center">Correos</td>
             </tr>

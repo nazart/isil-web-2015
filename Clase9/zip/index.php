@@ -10,8 +10,8 @@ $zip->addFromString("testfilephp.txt" , "#1 Esto es una cadena de prueba añadid
 /*creas un nuevo archivo tipo texto y le agregas el contenido*/
 $zip->addFromString("testfilephp2.txt", "#2 Esto es una cadena de prueba añadida como testfilephp2.txt.\n");
 /*Agregas un nuevo archivo existente*/
-$zip->addFile("files/registro.txt","files/registro.txt");
-echo "numficheros: " . $zip->numFiles . "\n";/*Numeros de archivo que tiene el sip*/
+$zip->addFile("files/registro.txt","archivos/registro.txt");
+echo "numficheros: " . $zip->numFiles . "\n";/*Numeros de archivo que tiene el zip*/
 echo "estado:" . $zip->status . "\n";/*Estatus del Zip*/
 $zip->close();
 ?>

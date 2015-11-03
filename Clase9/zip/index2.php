@@ -1,9 +1,9 @@
 <?php
 $za = new ZipArchive();
 
-$za->open('un_solo_archivo.zip');/*Abre el archivo*/
-print_r($za);
-var_dump($za);
+$za->open('zip_por_archivo.zip');/*Abre el archivo*/
+//print_r($za);
+//var_dump($za);
 echo "numFicheros: " . $za->numFiles . "\n";
 echo "estado: " . $za->status  . "\n";
 echo "estadosSis: " . $za->statusSys . "\n";
