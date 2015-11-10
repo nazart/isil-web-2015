@@ -85,7 +85,7 @@ abstract class API {
 		return $this->_response("No Endpoint: $this->endpoint", 404);
 	}
 
-	private function _response($data, $status = 200) {
+	protected function _response($data, $status = 200) {
 		header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
 		return json_encode($data);
 	}

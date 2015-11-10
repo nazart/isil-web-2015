@@ -14,4 +14,4 @@ class entityAlumno {
 		return array($id,$data[$id]);
     }
 	
-} 
+}

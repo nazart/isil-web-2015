@@ -1,5 +1,5 @@
 <?php
-$service_url = 'http://local.clasesisil.com/Clase10/Rest/server.php?request=example/1/3';
+$service_url = 'http://local.clasesisil.com/Clase10/Rest/server.php?request=example/1/3/4';
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $curl_response = curl_exec($curl);
