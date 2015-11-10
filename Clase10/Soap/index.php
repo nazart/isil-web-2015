@@ -1,15 +1,14 @@
 <?php
-$client=new SoapClient("http://www.webservicex.com/globalweather.asmx?WSDL");
+/*este servicio me devuelve los distritos de peru*/
+/*Pagina para probar servicios http://www.service-repository.com*/
+$client = new SoapClient("http://www.webservicex.com/globalweather.asmx?WSDL");
 $result = $client->GetCitiesByCountry(array('CountryName'=>'PERU'));
 $xmlString = $result->GetCitiesByCountryResult;
 $objectResult = new SimpleXMLElement($xmlString);
-
-$country = $objectResult->Table[0]->Country;
-$city = $objectResult->Table[0]->City;
-
-$client=new SoapClient("http://www.webservicex.com/globalweather.asmx?WSDL");
-$result = $client->GetWeather(array('CountryName'=>$country,'CityName'=>$city));
-$xmlString = str_replace('<?xml version="1.0" encoding="utf-16"?>', '', $result->GetWeatherResult) ;
-$objectResult = new SimpleXMLElement($xmlString);
-print_r($objectResult);
-
+echo '<ul>';
+foreach($objectResult as $index){
+	echo '<li><a href="detalleCity.php?city='.$index->City.'&country='.$index->Country.'">'; 
+	echo $index->City; 
+	echo '</a></li>'; 
+}
+echo '</ul>';
